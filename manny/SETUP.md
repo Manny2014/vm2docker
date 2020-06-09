@@ -22,17 +22,15 @@ index f67030f..12aff65 100644
  # add sourcecode
  ```
 
-## Docker installation on Ubuntu Host
+## Docker installation on Ubuntu Host 
 ```bash
-sudo apt install docker.io
-
+#!/bin/bash
+sudo apt-get update 
+sudo apt-get install -y python python-pip python-dev swig
+sudo apt-get install -y rsync curl duplicity docker.io
 sudo systemctl start docker
-
 sudo systemctl enable docker
-
 sudo usermod -a -G docker ubuntu 
-
-newgrp docker
 ```
 
 ## Docker TCP Configuration
