@@ -22,7 +22,16 @@
 - Attempt #1 (Failed)
     - Create a Ubuntu VM using my home [antsle](https://antsle.com/) server.
     - Ran Agent on the VM
-    - Ran
+    - Ran Chief inside of a docker container pointing to the target VM's docker daemon
+    - Results:
+        - My VM ended up in a bad state
+        
+- Attempt #2 (Failed)
+    - Create a Ubuntu VM using my home [antsle](https://antsle.com/) server.
+    - Ran Agent on the VM
+    - Ran Chief inside of a docker container pointing to the target VM's docker daemon
+    - Results:
+        - My VM ended up in a bad state
 
 ### General Issues 
 - Dockerfile was outdated

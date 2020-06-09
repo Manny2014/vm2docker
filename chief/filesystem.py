@@ -62,7 +62,7 @@ class BaseImageGenerator(object):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        #self.clean_up()
+        self.clean_up()
         return False
 
     def generate_linux_info(self, vm_root):
