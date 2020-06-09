@@ -52,11 +52,13 @@ class PackageManager(object):
             assert self.docker_client is not None
             repo, tag = self.image_repo_tag
             parent = DockerFile.format_image_name(repo, tag)
-            res = self.docker_client.create_container(parent, command=self._get_installed_cmd())
-            container_id = res['Id']
-            self.docker_client.start(res)
-            assert self.docker_client.wait(res) == 0  # wait until command completes successfull
-            installed = self.docker_client.logs(container_id)
+            res = self.docker_client.containers.create(parent, command=self._get_installed_cmd()) # TODO: Updated by manny
+            container_id = res.id  # TODO: Updated by manny
+            self.docker_client.containers.start(res) # TODO: Updated by manny
+            # TODO: Updated by manny
+            assert self.docker_client.containers.wait(res) == 0  # wait until command completes successfull
+            installed = self.docker_client.containers.logs(container_id)# TODO: Updated by manny
+            
         return self._process_get_installed(installed)
 
     def _process_get_installed(self, res):

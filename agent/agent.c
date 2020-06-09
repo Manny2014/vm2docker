@@ -19,6 +19,7 @@ bool process_cmd(char *cmd, int clientfd);
 int main(int argc, char *argv[]) {
     // verify that user is running as root
     uid_t uid=getuid(), euid=geteuid();
+
     if (euid != 0 && uid != 0) {
         printf("The agent must be run as root. Please try again\n");
         exit(errno);
@@ -34,7 +35,9 @@ int main(int argc, char *argv[]) {
 	}
 
 	memset(&self, 0, sizeof(self));
+	
 	self.sin_family = AF_INET;
+
 	char *port_str;
 	if (argc == 2) {
 	    port_str = argv[1];
@@ -48,6 +51,7 @@ int main(int argc, char *argv[]) {
 	    port = atoi(port_str);
 	}
 	printf("Starting agent on port %d\n", port);
+	
 	self.sin_port = htons(port);
 	self.sin_addr.s_addr = INADDR_ANY;
 

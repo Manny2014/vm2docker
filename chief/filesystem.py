@@ -67,7 +67,7 @@ class BaseImageGenerator(object):
 
     def generate_linux_info(self, vm_root):
         self.linux_info = LinuxInfoParser(vm_root).generate_os_info()
-        logging.debug('Detected OS: %s' % self.linux_info.get('PRETTY_NAME', self.linux_info.get('DISTRIB_DESCRIPTION')))
+        logging.info('Detected OS: %s' % self.linux_info.get('PRETTY_NAME', self.linux_info.get('DISTRIB_DESCRIPTION')))
 
 
     @staticmethod
@@ -84,17 +84,27 @@ class BaseImageGenerator(object):
     def find_base_image(self, repo, tag):
         logging.debug("Searching for base image with repo %s, tag %s" % (repo, tag))
         repo_tag = DockerFile.format_image_name(repo, tag)
-        self.docker_client.pull(repo)
-        logging.debug(self.docker_client.images())
-        candidate_image = [x for x in self.docker_client.images() if repo_tag in x['RepoTags']]
+        # TODO: Updated by manny
+        self.docker_client.images.pull(repo)
+
+        #self.docker_client.pull(repo)
+       
+        # TODO: Updated by manny
+        images = self.docker_client.images.list()
+        logging.debug(images)
+        
+        # TODO: Updated by manny
+        candidate_image = [x for x in images if repo_tag in x.tags]
+
         if len(candidate_image) == 1:
             return self.start_image_and_generate_container_id(repo_tag)
         else:
             return None  # TODO: this isn't good, need to manually generate base image with debootstrap
 
     def start_image_and_generate_container_id(self, repo_tag, command='echo FAKECOMMAND'):
-        res = self.docker_client.create_container(repo_tag, command=command)
-        container_id = res['Id']
+        res = self.docker_client.containers.create(repo_tag, command=command) # TODO: Updated by manny 
+
+        container_id = res.id # TODO: Updated by manny
         logging.debug('Container ID: %s' % container_id)
         return container_id
 
@@ -123,6 +133,9 @@ class BaseImageGenerator(object):
         new_vm_root = os.path.join(self.temp_dir, 'vm_root', '') # stupid trailing / hack
         logging.debug('Obtaining filesystem from socket connection')
         tar_path = self.vm_socket.get_filesystem(tar_options)
+        
+        logging.debug('Successfully obtained filesystem from socket connection')
+        logging.debug('Extracting tar file')
         assert tarfile.is_tarfile(tar_path)
         self.extract_tar(tar_path, new_vm_root)
 

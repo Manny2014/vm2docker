@@ -80,11 +80,16 @@ if __name__ == '__main__':
 
     # TODO: don't think we need root anymore, but we may for permissions or something
     assert os.geteuid() == 0
+
     DOCKER_HOST = os.environ.get('DOCKER_HOST', None)
     if DOCKER_HOST is not None and len(DOCKER_HOST.strip()) == 0:
         DOCKER_HOST = None
 
-    client = docker.Client(base_url=DOCKER_HOST)
+    # TODO: Updated by manny
+    logging.debug("DOCKER_HOST=%s" % DOCKER_HOST)
+
+    client = docker.DockerClient(base_url=DOCKER_HOST)
+    # client = docker.Client(base_url=DOCKER_HOST)
     tag_name = args.tag
     with CommunicationLayer(args.vm_ip_address, args.agent_port) as vm_socket:
         with BaseImageGenerator(vm_socket, client, process_packages=args.packages, cache=args.cache, filter_deps=args.filter_deps, debug=args.debug) as image_gen:

@@ -87,7 +87,7 @@ class DockerBuild(object):
         self.process_info = p_info_object
 
     def build(self, tag):
-        stream = self.docker_client.build(path=self.dir, tag=tag)
+        stream = self.docker_client.images.build(path=self.dir, tag=tag) # TODO: Updated by manny
         logging.debug('Building %s with tag %s' % (self.dir, tag))
 
         last_msg = None

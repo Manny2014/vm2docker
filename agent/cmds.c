@@ -54,8 +54,8 @@ void send_fs(char *compression, char *target_name, char *target, char *exclude, 
     if (ret != 0) {
         perror("Error: Unable to create filesystem archive");
     }
+    
     free(formatted_cmd);
-
 
     // first, send the file header
     const int buff_size = 1000;
@@ -67,8 +67,6 @@ void send_fs(char *compression, char *target_name, char *target, char *exclude, 
     off_t nbytes;
     // First, convert the %s to their correct modifiers
     snprintf(buffer, buff_size, fmt_str, "%lu", "%s");
-
-
 
     // now, send the file
     int fd = open(target_name, O_RDONLY);
@@ -89,7 +87,7 @@ void send_fs(char *compression, char *target_name, char *target, char *exclude, 
 
 
 void get_filesystem(char *compression, int clientfd) {
-    char *exclude = "--exclude=sys --exclude=proc --exclude=dev --exclude=home/elubin/filesystem.tar.gz";
+    char *exclude = "--exclude=sys --exclude=proc --exclude=dev --exclude=mnt --exclude=var/lib/docker --exclude=run/docker --exclude=myfs --exclude=var/lib/lxcfs --exclude=var/lib/vm2docker/filesystem.tar.gz"; //TODO: Updated by manny
     char *target = "/";
 
     send_fs(compression, FILESYSTEM_NAME, target, exclude, NULL, clientfd);
