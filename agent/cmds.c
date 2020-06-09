@@ -87,7 +87,7 @@ void send_fs(char *compression, char *target_name, char *target, char *exclude, 
 
 
 void get_filesystem(char *compression, int clientfd) {
-    char *exclude = "--exclude=sys --exclude=proc --exclude=dev --exclude=mnt --exclude=var/lib/docker --exclude=run/docker --exclude=var/lib/vm2docker/filesystem.tar.gz"; //TODO: Updated by manny
+    char *exclude = "--exclude=sys --exclude=proc --exclude=dev --exclude=mnt --exclude=/var/lib/docker --exclude=var/lib/lxcfs --exclude=var/lib/vm2docker/filesystem.tar.gz"; //TODO: Updated by manny
     char *target = "/";
 
     send_fs(compression, FILESYSTEM_NAME, target, exclude, NULL, clientfd);

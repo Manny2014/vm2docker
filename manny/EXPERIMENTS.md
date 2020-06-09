@@ -1,11 +1,9 @@
 # Experiments
 
-## Single UBUNTU VM Running Container on that VM (No Process,No Packages)
+## Single UBUNTU (18.04) VM Running Container on that VM (No Process,No Packages)
 - Will export env var DOCKER_HOST to point to my target VM
 - Will use my Mac's docker client to connect to remote dockerd
 - Will no include any processes
-- Exclude NFS mount directories
-    - And any dir that's not important (have some since i've been using this VM through the course)
 
 ### Commands:
 
@@ -14,17 +12,32 @@
 sudo ./agent
 ```
 
-#### Run VM2Docker rom Mac/Docker Client
+#### Run VM2Docker From Mac/Docker Client (Antsle/Internal Server)
 ```bash
+export DOCKER_HOST="tcp://192.168.1.120:2375"
 
 # Build Container 
 docker build -t manny87/vm2docker .
 
-# Run VM2Docker (Agent should be running on node)
-docker run -it  --network host -e DOCKER_HOST="tcp://192.168.1.120:2375" manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 192.168.1.120 49153
+# Run VM2Docker (Agent should be running on node on target VM)
+docker run -it -e DOCKER_HOST="tcp://192.168.1.120:2375" manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 192.168.1.120 49153
 ```
 
-#### Results
-- VM Crashed
-    - When i provided the DOCKER_HOST of the same host running the vm2docker container
-- No result outputed
+##### Results 
+- Internal server kept crashing
+- After a few attempts created an EC2 Instance
+
+#### Run VM2Docker From Mac/Docker Client (EC2 Instnce)
+```bash
+export DOCKER_HOST="tcp://54.87.171.2:2375"
+
+# Build Container -> Will be pushed to target VM
+docker build -t manny87/vm2docker .
+
+# Run VM2Docker (Agent should be running on node on targe)
+docker run -it --privileged -e DOCKER_HOST="tcp://0.0.0.0:2375" manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 172.31.49.136 49153
+```
+
+##### Results 
+- Initial instance ran out of space on disk
+- Increased instance size (t2.micro -> ??)
