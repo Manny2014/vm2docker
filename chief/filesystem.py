@@ -217,7 +217,7 @@ class BaseImageGenerator(object):
                     #logging.debug("Kickstarted Docker image with container ID: %s" % res)
 
     def clean_up(self):
-        # delete the temporary directoryå
+        # delete the temporary directory
         if not self.debug:
             rm_rf(self.temp_dir)
     #
