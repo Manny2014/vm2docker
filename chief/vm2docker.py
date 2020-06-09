@@ -87,16 +87,16 @@ if __name__ == '__main__':
 
     # TODO: Updated by manny
     logging.debug("DOCKER_HOST=%s" % DOCKER_HOST)
-
-    client = docker.DockerClient(base_url=DOCKER_HOST)
-    # client = docker.Client(base_url=DOCKER_HOST)
+    client = docker.from_env()
+    
+    # client = docker.DockerClient(base_url=DOCKER_HOST)
     tag_name = args.tag
+    
     with CommunicationLayer(args.vm_ip_address, args.agent_port) as vm_socket:
         with BaseImageGenerator(vm_socket, client, process_packages=args.packages, cache=args.cache, filter_deps=args.filter_deps, debug=args.debug) as image_gen:
             image_gen.generate(tag_name, run_locally=args.run, tar_options=args.tar_options, diff_tool=args.diff_tool, processes=args.processes)
 
     logging.debug('Results written to %s' % path)
-
 
 
 # http://stackoverflow.com/questions/19771113/how-to-recursively-diff-without-transversing-filesystems/19771489?noredirect=1#comment38508861_19771489
