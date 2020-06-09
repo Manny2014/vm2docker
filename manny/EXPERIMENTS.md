@@ -1,6 +1,7 @@
 # Experiments
 
 ## Single UBUNTU (18.04) VM Running Container on that VM (No Process,No Packages)
+
 - Will export env var DOCKER_HOST to point to my target VM
 - Will use my Mac's docker client to connect to remote dockerd
 - Will no include any processes
@@ -39,8 +40,9 @@ docker build -t manny87/vm2docker .
 mkdir tmp
 docker run -it --privileged -v $(pwd)/tmp:/tmp  -e DOCKER_HOST=tcp://$(hostname -f):2375 manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 $(hostname -f) 49153
 ```
+##### Results
 
-##### Results 
+##### Issues 
 - Initial instance ran out of space on disk
 - Had to increase the storage of the VM from 8G to 200G
     - As the code stands, it pulls EVERY image from docker hub
