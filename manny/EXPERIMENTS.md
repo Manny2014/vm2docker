@@ -29,13 +29,13 @@ docker run -it -e DOCKER_HOST="tcp://192.168.1.120:2375" manny87/vm2docker:lates
 
 #### Run VM2Docker From Mac/Docker Client (EC2 Instnce)
 ```bash
-export DOCKER_HOST="tcp://54.87.171.2:2375"
+export DOCKER_HOST="tcp://34.236.37.227:2375"
 
 # Build Container -> Will be pushed to target VM
 docker build -t manny87/vm2docker .
 
 # Run VM2Docker (Agent should be running on node on targe)
-docker run -it --privileged -e DOCKER_HOST="tcp://0.0.0.0:2375" manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 172.31.49.136 49153
+docker run -it --privileged -e DOCKER_HOST="tcp://0.0.0.0:2375" manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 $(hostname -f) 49153
 ```
 
 ##### Results 

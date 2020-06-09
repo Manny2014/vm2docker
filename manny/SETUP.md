@@ -31,6 +31,7 @@ sudo apt-get install -y rsync curl duplicity docker.io
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -a -G docker ubuntu 
+sudo mkdir /var/lib/vm2docker
 ```
 
 ## Docker TCP Configuration
@@ -41,4 +42,10 @@ sudo usermod -a -G docker ubuntu
 Type=notify
 #ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375
+```
+- Bounce dockerd
+
+```bash
+systemctl daemon-reload
+systemctl restart docker
 ```
