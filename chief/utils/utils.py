@@ -75,6 +75,7 @@ def extract_tar(tar_path, target_dir, clean_up=True):
         os.makedirs(target_dir)
 
     logging.debug('Extracting tar to %s' % target_dir)
+    
     tf.extractall(target_dir)
 
     if clean_up:

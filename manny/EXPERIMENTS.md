@@ -35,9 +35,18 @@ export DOCKER_HOST="tcp://34.236.37.227:2375"
 docker build -t manny87/vm2docker .
 
 # Run VM2Docker (Agent should be running on node on targe)
-docker run -it --privileged -e DOCKER_HOST="tcp://0.0.0.0:2375" manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 $(hostname -f) 49153
+# Will work off of /var/lib/vm2docker which will be ignored by the tar operation executed by the agent
+mkdir tmp
+docker run -it --privileged -v $(pwd)/tmp:/tmp  -e DOCKER_HOST=tcp://$(hostname -f):2375 manny87/vm2docker:latest --debug --no-packages --no-processes --no-run --tag vanilla-1 $(hostname -f) 49153
 ```
 
 ##### Results 
 - Initial instance ran out of space on disk
-- Increased instance size (t2.micro -> ??)
+- Had to increase the storage of the VM from 8G to 200G
+    - As the code stands, it pulls EVERY image from docker hub
+
+## Modifications
+- Update Docker Py to latest version
+- Fixed bug where it pulled ALL images
+- Updated Dockerfile to ensure packages are installed correctly
+- Fixed issue when running vm2docker in a container with tmp dir permissions

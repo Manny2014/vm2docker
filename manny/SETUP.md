@@ -28,10 +28,16 @@ index f67030f..12aff65 100644
 sudo apt-get update 
 sudo apt-get install -y python python-pip python-dev swig
 sudo apt-get install -y rsync curl duplicity docker.io
+sudo apt-get install -y libpcap-dev libarchive-dev
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -a -G docker ubuntu 
-sudo mkdir /var/lib/vm2docker
+sudo mkdir -p /var/lib/vm2docker/tmp
+sudo mkdir -p /var/lib/vm2docker/
+sudo chown -R ubuntu /var/lib/vm2docker
+sudo chgrp -R ubuntu /var/lib/vm2docker
+cd /var/lib/vm2docker
+git clone https://github.com/Manny2014/vm2docker.git
 ```
 
 ## Docker TCP Configuration

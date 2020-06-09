@@ -20,7 +20,7 @@ class LinuxInfoParser(object):
 
     def _parse_os_info(self, file_paths):
         out = {}
-        suspects = ['Mageia', 'CentOS']
+        suspects = ['Mageia', 'CentOS', 'Ubuntu']
         match = re.compile('(%s) (Linux )?release ([\d]+).*' % '|'.join(suspects))
         for path in file_paths:
             with open(path, 'r') as f:
@@ -84,11 +84,10 @@ class BaseImageGenerator(object):
     def find_base_image(self, repo, tag):
         logging.debug("Searching for base image with repo %s, tag %s" % (repo, tag))
         repo_tag = DockerFile.format_image_name(repo, tag)
-        # TODO: Updated by manny
-        self.docker_client.images.pull(repo)
 
-        #self.docker_client.pull(repo)
-       
+        # TODO: Updated by manny
+        self.docker_client.images.pull(repo_tag)
+
         # TODO: Updated by manny
         images = self.docker_client.images.list()
         logging.debug(images)
@@ -134,18 +133,26 @@ class BaseImageGenerator(object):
         logging.debug('Obtaining filesystem from socket connection')
         tar_path = self.vm_socket.get_filesystem(tar_options)
         
+
         logging.debug('Successfully obtained filesystem from socket connection')
         logging.debug('Extracting tar file')
+
         assert tarfile.is_tarfile(tar_path)
+
         self.extract_tar(tar_path, new_vm_root)
 
+        logging.debug('Successfully extracted tar file')
+
+        logging.debug('Retrieving Linux OS Data')
         self.generate_linux_info(new_vm_root)
+        logging.debug('Successfully retrieved Linux OS Data')
 
         logging.debug('Version Info: %s' % repr(self.linux_info))
         repo = self.linux_info.get('ID', self.linux_info.get('DISTRIB_ID')).lower()
 
         tag = self.linux_info.get('VERSION_ID', self.linux_info.get('DISTRIB_RELEASE'))
         tag = self.transform_tag(repo, tag)
+
         container_id = self.find_base_image(repo, tag)
         assert container_id is not None
         base_tar_path = self.export_container_to_tar(container_id)
