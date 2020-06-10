@@ -53,4 +53,4 @@ docker.errors.BuildError: failed to copy files: Error processing tar file(exit s
 - Fixed issue when running vm2docker in a container with tmp dir permissions
 
 
-##### [Back-to-Index](../../00-Index.md)
+##### [Back-to-Index](../../../00-Index.md)
