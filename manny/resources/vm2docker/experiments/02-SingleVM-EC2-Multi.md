@@ -109,7 +109,7 @@ failed to copy files: Error processing tar file(exit status 1): operation not pe
 ```
 ##### Size of Tar
 ```bash
-total 4.3G
+total 5.0G
 -rwxr-xr-x 1 root root  20K Jun  9 23:20 agent
 -rw-r--r-- 1 root root 4.6K Jun  9 23:20 agent.c
 -rw-r--r-- 1 root root 7.2K Jun  9 23:20 agent.o
@@ -118,7 +118,7 @@ total 4.3G
 -rw-r--r-- 1 root root  306 Jun  9 23:20 cmds.h
 -rw-r--r-- 1 root root  11K Jun  9 23:20 cmds.o
 -rw-r--r-- 1 root root 1.2K Jun  9 23:20 constants.h
--rw-r--r-- 1 root root 4.3G Jun 10 00:08 filesystem.tar.gz
+-rw-r--r-- 1 root root 5.0G Jun 10 00:08 filesystem.tar.gz
 -rw-r--r-- 1 root root   86 Jun  9 23:20 interface.i
 -rw-r--r-- 1 root root  305 Jun  9 23:20 mageia.c
 -rw-r--r-- 1 root root 1.8K Jun  9 23:20 mageia.o
