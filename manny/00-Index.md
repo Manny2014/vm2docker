@@ -9,9 +9,9 @@
 
 ## VM2Docker Overview
 ---
-- [VM File System Conversion](resources/definitions/vm2docker/00-FileSystemConversion.md)
-- [Process Detection](resources/definitions/vm2docker/01-ProcessDetection.md)
-- [Architecture](resources/definitions/vm2docker/02-Architecture.md)
+- [VM File System Conversion](resources/vm2docker/00-FileSystemConversion.md)
+- [Process Detection](resources/vm2docker/01-ProcessDetection.md)
+- [Architecture](resources/vm2docker/02-Architecture.md)
 
 ## Experiments
 ---
@@ -19,9 +19,9 @@
 ### Setup & Run-as-is
 
 #### Setup
-- [Single Antsle VM From Mac Container](resources/vm2docker/00-SingleVM-Mac.md)
-- [Single EC2 VM](resources/vm2docker/01-SingleVM-EC2-Single.md)
-- [Multi EC2 VM](resources/vm2docker/02-SingleVM-EC2-Multi.md)
+- [Single Antsle VM From Mac Container](resources/vm2docker/experiments/00-SingleVM-Mac.md)
+- [Single EC2 VM](resources/vm2docker/experiments/01-SingleVM-EC2-Single.md)
+- [Multi EC2 VM](resources/vm2docker/experiments/02-SingleVM-EC2-Multi.md)
 
 ### General Issues 
 - Dockerfile was outdated
