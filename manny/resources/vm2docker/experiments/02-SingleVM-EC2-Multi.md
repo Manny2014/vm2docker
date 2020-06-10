@@ -7,11 +7,40 @@
   - It will have docker installed.
 - Will no include any processes
 
-### Commands:
+### Instructiions:
+
+#### Do AWS Instance Setup
+- [Instane Info](../setup/00-AWS-Setup.md)
+  - We'll let INSTANCE_IP be the public IP of the instance
 
 #### Run Agent
 ```bash
+# LOG IN TO YOUR HOST
+ssh -i ~/.ssh/ec2.pem  ubuntu@${INSTANCE_IP}
+
+# GO TO VM2DOCKER WORKING DIR
+cd /var/lib/vm2docker/vm2docker/agent
+
+# START AGENT (userdata.sh will have compiletd it already)
 sudo ./agent
+```
+
+#### Build Docker Image (FROM LOCAL LAPTOP)
+
+```bash
+# EXPORT DOCKER_HOST TO TEL YOUR CLIENT TO USE A REMOTE DAEMON
+export DOCKER_HOST="tcp://${INSTANCE_IP}:2375"
+
+# Build Container -> Will be pushed to target VM
+docker build -t manny87/vm2docker .
+
+# THE IMAGE WILL NOW BE AVAILABLE ON REMOTE HOST
+docker images
+
+manny@Emmanuels-MBP:~/git/opensource/vm2docker$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+manny87/vm2docker   latest              de275e3cd984        36 seconds ago      471MB
+ubuntu              14.04               6e4f1fe62ff1        5 months ago        197MB
 ```
 
 #### Run Chief
