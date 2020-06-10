@@ -107,6 +107,12 @@ Step 1/5 : FROM ubuntu:18.04
 Step 2/5 : ADD modded.tar /
 failed to copy files: Error processing tar file(exit status 1): operation not permitted
 ```
+##### Size of Tar
+```bash
+total 3.9G
+-rwxr-xr-x 1 root root  20K Jun  9 23:20 agent
+-rw-r--r-- 1 root root 3.9G Jun 10 00:06 filesystem.tar.gz
+```
 ##### Output from VM2Docker
 ```text
 From size: 71140K	/tmp/tmpFRjrPV/root_fs/
