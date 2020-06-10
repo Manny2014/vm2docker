@@ -7,7 +7,7 @@
 - [Copy-on-write](resources/definitions/01-CopyOnWrite.md)
 - [Union Mount](resources/definitions/02-UnionMount.md)
 
-## VM2Docker Overview
+## VM2Docker Overview/Background
 ---
 - [VM File System Conversion](resources/vm2docker/00-FileSystemConversion.md)
 - [Process Detection](resources/vm2docker/01-ProcessDetection.md)

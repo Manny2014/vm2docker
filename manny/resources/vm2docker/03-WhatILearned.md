@@ -11,5 +11,5 @@
     - If time wasn't an issue, i feel like i could figure this out but was not able to.
 - Dependency Dection
     - I thought the way that the developers of the VM2Docker program were very about their implementation, specifically around package detection
-- 
+
 ##### [Back-to-Index](../../00-Index.md)
