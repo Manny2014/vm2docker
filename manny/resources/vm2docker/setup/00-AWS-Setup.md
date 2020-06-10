@@ -4,7 +4,7 @@
 - Type: *t2.large*
 - EBS Volume Size: *200GB*
 - OS: Ubuntu
-- UserData:
+- UserData (Chief):
 ```bash
 #!/bin/bash
 sudo apt-get update 

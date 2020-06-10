@@ -16,22 +16,12 @@
 ## Experiments
 ---
 
-### Goal #1: Setup & Run-as-is
+### Setup & Run-as-is
 
 #### Setup
-- Attempt #1 (Failed)
-    - Create a Ubuntu VM using my home [antsle](https://antsle.com/) server.
-    - Ran Agent on the VM
-    - Ran Chief inside of a docker container pointing to the target VM's docker daemon
-    - Results:
-        - My VM ended up in a bad state
-        
-- Attempt #2 (Failed)
-    - Create a Ubuntu VM using my home [antsle](https://antsle.com/) server.
-    - Ran Agent on the VM
-    - Ran Chief inside of a docker container pointing to the target VM's docker daemon
-    - Results:
-        - My VM ended up in a bad state
+- [Single Antsle VM From Mac Container](resources/vm2docker/00-SingleVM-Mac.md)
+- [Single EC2 VM](resources/vm2docker/01-SingleVM-EC2-Single.md)
+- [Multi EC2 VM](resources/vm2docker/02-SingleVM-EC2-Multi.md)
 
 ### General Issues 
 - Dockerfile was outdated
