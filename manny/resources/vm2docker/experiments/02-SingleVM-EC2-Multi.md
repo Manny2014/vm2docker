@@ -109,10 +109,24 @@ failed to copy files: Error processing tar file(exit status 1): operation not pe
 ```
 ##### Size of Tar
 ```bash
-total 3.9G
+total 4.3G
 -rwxr-xr-x 1 root root  20K Jun  9 23:20 agent
--rw-r--r-- 1 root root 3.9G Jun 10 00:06 filesystem.tar.gz
+-rw-r--r-- 1 root root 4.6K Jun  9 23:20 agent.c
+-rw-r--r-- 1 root root 7.2K Jun  9 23:20 agent.o
+-rw-r--r-- 1 root root  340 Jun  9 23:20 centos.c
+-rw-r--r-- 1 root root 8.4K Jun  9 23:20 cmds.c
+-rw-r--r-- 1 root root  306 Jun  9 23:20 cmds.h
+-rw-r--r-- 1 root root  11K Jun  9 23:20 cmds.o
+-rw-r--r-- 1 root root 1.2K Jun  9 23:20 constants.h
+-rw-r--r-- 1 root root 4.3G Jun 10 00:08 filesystem.tar.gz
+-rw-r--r-- 1 root root   86 Jun  9 23:20 interface.i
+-rw-r--r-- 1 root root  305 Jun  9 23:20 mageia.c
+-rw-r--r-- 1 root root 1.8K Jun  9 23:20 mageia.o
+-rw-r--r-- 1 root root 2.8K Jun  9 23:20 Makefile
+-rw-r--r-- 1 root root   74 Jun  9 23:20 os.h
+-rw-r--r-- 1 root root  334 Jun  9 23:20 ubuntu.c
 ```
+
 ##### Output from VM2Docker
 ```text
 From size: 71140K	/tmp/tmpFRjrPV/root_fs/
