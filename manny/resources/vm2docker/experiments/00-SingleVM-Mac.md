@@ -112,6 +112,6 @@ Writing to Socket: Size: 960682966, Filename: filesystem.tar.gz
 #### Issues
 - Internal server kept crashing
 - Decided that fixing that was not in scope and should move on to AWS EC2.
-
+- Mounting the tmp dir got further against the EC2 instance but it essentially killed docker. Could not stop the container.
 
 ##### [Back-to-Index](../../../00-Index.md)
