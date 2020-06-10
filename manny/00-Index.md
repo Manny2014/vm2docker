@@ -21,6 +21,7 @@
 #### Setup
 - [Single Antsle VM From Mac Container](resources/vm2docker/experiments/00-SingleVM-Mac.md)
 - [Single EC2 VM](resources/vm2docker/experiments/01-SingleVM-EC2-Single.md)
+    - [AWS EC2 Node Setup](resources/vm2docker/setup/00-AWS-Setup.md)
 - [Multi EC2 VM](resources/vm2docker/experiments/02-SingleVM-EC2-Multi.md)
 
 ### General Issues 

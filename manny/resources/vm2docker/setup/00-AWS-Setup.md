@@ -38,5 +38,4 @@ sudo ./agent
         systemctl restart docker
         ```
 
-
-##### [Back-to-Index](../../00-Index.md)
+##### [Back-to-Index](../../../00-Index.md)
