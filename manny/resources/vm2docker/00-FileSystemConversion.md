@@ -29,7 +29,7 @@
 - Leverges the provided VM's package management solutions (ex: yum, apt-get, ect..), to determine all of the currently installed packages on the system.
 - Maximize layering by first computing the intersection of packages for all VM's of the same operating system and release. 
 - Once filtered, a Dockerfile will be generated that inherits from the image created in the previous step and installs the remaining packages specific to the provided VM.
-    - ![Directed Graph](../imgs/DependencyDetectionDig.png)
+    - ![Directed Graph](https://github.com/Manny2014/vm2docker/raw/master/manny/resources/imgs/DependencyDetectionDiG.png)
 
 ### Diff Strategy
 - Two strategies were evaluated: 
