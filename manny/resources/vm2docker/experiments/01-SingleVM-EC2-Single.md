@@ -4,7 +4,7 @@
 
 - Agent & Chief are on the same node
 - Will export env var DOCKER_HOST to point to my target VM
-- Will no include any processes
+- Will not include any processes and packages
 
 ### Commands:
 #### Run Agent

@@ -27,5 +27,7 @@ docker run -it -e DOCKER_HOST="tcp://192.168.1.120:2375" manny87/vm2docker:lates
 
 ##### Results 
 - Internal server kept crashing
+- Decided that fixing that was not in scope and should move on to AWS EC2.
+
 
 ##### [Back-to-Index](../../../00-Index.md)
