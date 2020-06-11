@@ -3,9 +3,9 @@
 
 ## Low-level Topics
 ---
+- [Union Mount](resources/definitions/02-UnionMount.md)
 - [Union file system](resources/definitions/00-UnionFileSystem.md)
 - [Copy-on-write](resources/definitions/01-CopyOnWrite.md)
-- [Union Mount](resources/definitions/02-UnionMount.md)
 
 ## VM2Docker Overview/Background
 ---
