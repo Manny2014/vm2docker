@@ -2,7 +2,7 @@
 
 ## Definition
 ---
-- Is way of comibing multiple directories into that that appears to contain their combined contents.
+- Is way of comibing multiple directories into that appears to contain their combined contents.
 - An early use case was the need to update information on CD-ROM's since they are not writeable, we can overlay the CD's mount point with a writable directory.
 
 ## Docker
