@@ -14,7 +14,7 @@
 
 ## Illustration
 ---
-![](https://upload.wikimedia.org/wikipedia/commons/d/d0/Copy_On_Write_technique.png)
+![](https://image.slidesharecdn.com/developqnapnasappbydocker-160510125436/95/develop-qnap-nas-app-by-docker-18-638.jpg?cb=1463789993)
 
 ## Sources
 ---
