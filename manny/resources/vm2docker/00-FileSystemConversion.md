@@ -6,7 +6,7 @@
 - The objective of the filesystem conversion is broken down into three steps
     1. Map VM OS version with an exiting container image available in Docker hub
     2. Assemble additional layers required based on installed packages on the given VM
-    3. Apply a diff-based algorithm to create account for other files not accounted for by the previous steps.
+    3. Apply a diff-based algorithm to create and account for other files not accounted for by the previous steps.
 - Motivation
     - Space savings
         - Leverage Docker filesystem layering by inhering from a "parent" image.
