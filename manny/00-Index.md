@@ -27,9 +27,9 @@
 ### General Issues 
 - Dockerfile was outdated
 - Initial AWS instance ran out of space on disk
-- Had to increase the storage of the VM from 8G to 200G
-    - As the code stands, it pulls EVERY image from docker hub
-
+- As the code stands, it pulls EVERY image from docker hub
+    - Fixed that by using label with version
+    
 ### Modifications
 - Update Docker Py to latest version
 - Fixed bug where it pulled ALL images
