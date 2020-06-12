@@ -1,11 +1,5 @@
 # **VM2Docker - Emmanuel Rodriguez** 
 
-
-## Low-level Topics
----
-- [Union Mount](resources/definitions/02-UnionMount.md)
-- [Union file system](resources/definitions/00-UnionFileSystem.md)
-
 ## VM2Docker Overview/Background
 ---
 - [VM File System Conversion](resources/vm2docker/00-FileSystemConversion.md)
